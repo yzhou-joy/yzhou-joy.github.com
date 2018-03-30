@@ -1,6 +1,6 @@
 ---
 title: "bioconductor and markdown"
-date: 2018-03-30 16:53:09
+date: "2018-03-30 16:53:09"
 categories:
 - R
 - bioconductor
@@ -191,15 +191,15 @@ union(a1,a2)    #并集
  - 使用vmatchPattern和vmatchPDict    
  - 对于PWM没有对应的功能   
  
-```{r error=TRUE}
-a=DNAString("ACGTACGTACTC")
-a2=DNAStringSet(a, start=c(1,5,9), end=c(4,8,12))
-a2
-vv=vmatchPattern("CG", a2)
-vv      #对于a2的每一行都匹配搜索CG，如果某一行没有CG，则不显示数字；显示232表示a2中这一行的序列CG在第2、3个位置
+```{r error=TRUE}    
+a=DNAString("ACGTACGTACTC")    
+a2=DNAStringSet(a, start=c(1,5,9), end=c(4,8,12))    
+a2    
+vv=vmatchPattern("CG", a2)    
+vv      #对于a2的每一行都匹配搜索CG，如果某一行没有CG，则不显示数字；显示232表示a2中这一行的序列CG在第2、3个位置    
 vv[[1]]    
 # 这些同样不能在Views中操作   
-a2=Views(a, start=c(1,5,9), end=c(4,8,12))
-a2
-vv=vmatchPattern("CG", a2)
+a2=Views(a, start=c(1,5,9), end=c(4,8,12))    
+a2    
+vv=vmatchPattern("CG", a2)    
 ```
