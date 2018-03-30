@@ -3,7 +3,6 @@ title: jekyll的一些想法
 date: 2018-03-30 20:33:26
 categories:
 - essay
-tags:
 ---
 
 1、怎样才能像R markdown生成的html一样显示命令运行结果？
