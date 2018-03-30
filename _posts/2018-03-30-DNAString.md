@@ -3,6 +3,8 @@ title: "bioconductor and markdown"
 date: "2018-03-30 16:53:09"
 categories:
 - R
+tags:
+- R
 - bioconductor
 ---
 
