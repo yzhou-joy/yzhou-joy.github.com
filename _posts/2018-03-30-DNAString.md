@@ -11,8 +11,8 @@ categories:
 ```{r cars,eval=FALSE}  
 source("http://bioconductor.org/biocLite.R")  
 biocLite(c("GenomicFeatures", "GenomicRanges"))  
-```   
-
+```
+      
 ##### XString是一个“虚拟类”，不能被“实例化”（不能创建XString对象）。四个子类(对象操作类似)为：  
  - BString：用于存储一般字符串。  
  - DNAString：用于存储DNA（核苷酸）序列。  
