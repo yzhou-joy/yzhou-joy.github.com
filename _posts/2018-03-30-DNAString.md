@@ -7,7 +7,8 @@ categories:
 ---
 
 ### bioconductor  
-#### **下载**    
+#### **下载**     
+
 ```{r cars,eval=FALSE}  
 source("http://bioconductor.org/biocLite.R")  
 biocLite(c("GenomicFeatures", "GenomicRanges"))  
@@ -20,9 +21,11 @@ biocLite(c("GenomicFeatures", "GenomicRanges"))
  - AAString：用于存储蛋白质（氨基酸）序列。  
  
 #### **创建Biostrings的对象:**  
+
 ```{r results="hide",message=FALSE}    
 library(Biostrings)  
 ```  
+
 ```{r}  
 a=BString("I am a string!")  
 a  
@@ -32,11 +35,13 @@ subseq(a,1,4)   #效率优于a[1:4]
 ```  
      
 #### **可以将序列倒转:**  
+
 ```{r}  
 rev(a)  
 ```    
      
 #### **比较判断以及转存到字符串(实)中:**  
+
 ```{r results='markup'}  
 a=="I am"  
 a[1:4]=="I am"  
@@ -71,6 +76,7 @@ translate(a)    #翻译序列，以氨基酸缩写显示
 ```     
    
 #### **碱基频率计数**  
+
 ```{r}   
 alphabetFrequency(a)   
 alphabetFrequency(a, baseOnly=TRUE)    #屏蔽MN等（M.N...是什么？）  
@@ -87,6 +93,7 @@ letterFrequency(a,"CGT")
     
 #### **matchPattern**   
 ##### 在序列中找寻一个给定的模式，可允许失配和插入/缺失（插入缺失）：    
+
 ```{r}    
 a=DNAString("ACGTACGTACGC")   
 matchPattern("CGT", a)
@@ -97,12 +104,14 @@ end(m)      #每个匹配到的mers的末尾
 length(m)     #有多少个匹配到该模式的mers
 countPattern("CGT", a, max.mismatch=1)    #有多少个匹配到该模式的mers
 ```
+
 ##### 这些功能可以有效地计算庞大基因组中的n-mers存在，例如：   
  - GC含量：“C”出现数+“G”出现数（当然利用之前所说的letterFrequency频数功能更有效）   
  - CpG含量：发生“CG”的数量    
 
 #### **matchPDict**    
 ##### 查找出现的一组模式。或者你可以写一个循环，但matchPDict更高效（R循环是出了名慢）。    
+
 ```{r}  
 a=DNAString("ACGTACGTACGC")  
 dict0=PDict(c("CGT","ACG"))  
@@ -114,6 +123,7 @@ mm[[2]]   #匹配ACG的情况
 ####  **PWM**    
 #####  PWM(位置权重矩阵), 用来表示DNA motif    
  - motif是蛋白中较小的保守序列片断    
+
 ```{r}   
 a=DNAString("ACGTACGTACTC")   
 motif=matrix(c(0.97,0.01,0.01,0.01,0.1,0.5,0.39,0.01,0.01,0.05,0.5,0.44),nrow=4)  #建立得分矩阵
@@ -128,9 +138,10 @@ PWMscoreStartingAt(motif, a, 1:10)
  - 多个字符串来源于“mother”字符串，并且放入一个字符串“view”或“set”。   
  - XStringViews：包含多个“view”（相同字符串的start/end位置）。   
  - DNAStringSet/RNAStringSet：类似但创建实际DNA/RNAString实例。   
- - StringSet允许比StringViews更多的操作。      
-     
+ - StringSet允许比StringViews更多的操作。   
+
 #### **XStringViews的基本操作**     
+
 ```{r}   
 a=DNAString("ACGTACGTACTC")  
 a2=Views(a, start=c(1,5,8), end=c(3,8,12))  
@@ -142,8 +153,10 @@ end(a2)       #a2分别的结束位置
 alphabetFrequency(a2, baseOnly=TRUE)    #分别统计a2中每个字符串中的碱基频率
 a2==DNAString("ACGT")    #判断是否等于（逻辑）
 toString(a2)              #提出已设定位置的每个序列a2
-```    
+```
+
 #### **DNAStringSet的基本操作**     
+
 ```{r}
 a=DNAString("ACGTACGTACTC")
 a2=DNAStringSet(a, start=c(1,5,9), end=c(4,8,12))
@@ -151,8 +164,9 @@ a2
 a2[[3]]
 alphabetFrequency(a2, baseOnly=TRUE)
 ```     
-    
+
 #### **一些操作只在StringSet中被允许，而不存在于Views，如set操作**     
+
 ```{r error=TRUE}
 a1=DNAStringSet(a, start=c(1,5,9), end=c(4,8,12))
 a1
@@ -172,10 +186,10 @@ a2
 setdiff(a1,a2)    #差集
 union(a1,a2)    #并集
 ```    
-     
+
 #### **多序列（字符串）的匹配**      
  - 使用vmatchPattern和vmatchPDict    
- - 对于PWM没有对应的功能    
+ - 对于PWM没有对应的功能   
  
 ```{r error=TRUE}
 a=DNAString("ACGTACGTACTC")
