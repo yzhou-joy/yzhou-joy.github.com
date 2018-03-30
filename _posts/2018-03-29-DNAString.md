@@ -1,5 +1,5 @@
 ---
-title: "bioconductor and markdown"
+title: "DNAString"
 date: "2018-03-29 16:53:09"
 categories:
 - R
