@@ -10,13 +10,20 @@ highlighter: rouge
 permalink: pretty
 
 #### Markdown Processors
-# 'redcarpet' is unsupported on GitHub Pages now.
-#markdown: redcarpet
-#redcarpet：
-#     input: GFM
-markdown: kramdown
-kramdown:
-    input: GFM
+markdown: redcarpet
+  redcarpet:
+    extensions:
+      - hard_wrap
+      - no_intra_emphasis
+      - autolink
+      - strikethrough
+      - fenced_code_blocks
+      - with_toc_data
+      - tables
+      - underline
+#markdown: kramdown
+#kramdown:
+#    input: GFM
 
 #### Default Attributes
 defaults:
