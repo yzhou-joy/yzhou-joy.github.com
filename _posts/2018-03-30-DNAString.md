@@ -46,7 +46,8 @@ class(toString(a))
 ```  
   
 #### **DNAString/RNAString**  
-##### 他们只能采取“有效”字符来表示核苷酸：  
+他们只能采取“有效”字符来表示核苷酸：  
+
 ```{r}  
 IUPAC_CODE_MAP   #显示核苷酸与表示核苷酸的有效字符的一一对应关系  
 DNA_ALPHABET  
