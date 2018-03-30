@@ -6,24 +6,19 @@ categories:
 - bioconductor
 ---
 
-```{r setup, include=FALSE}  
-knitr::opts_chunk$set(echo = TRUE)  
-```  
-  
 ### bioconductor  
-  
 #### **下载**    
 ```{r cars,eval=FALSE}  
 source("http://bioconductor.org/biocLite.R")  
 biocLite(c("GenomicFeatures", "GenomicRanges"))  
 ```   
-      
+
 ##### XString是一个“虚拟类”，不能被“实例化”（不能创建XString对象）。四个子类(对象操作类似)为：  
  - BString：用于存储一般字符串。  
  - DNAString：用于存储DNA（核苷酸）序列。  
  - RNAString：用于存储RNA序列。  
  - AAString：用于存储蛋白质（氨基酸）序列。  
-      
+ 
 #### **创建Biostrings的对象:**  
 ```{r results="hide",message=FALSE}    
 library(Biostrings)  
@@ -176,9 +171,11 @@ a2
 setdiff(a1,a2)    #差集
 union(a1,a2)    #并集
 ```    
+     
 #### **多序列（字符串）的匹配**      
  - 使用vmatchPattern和vmatchPDict    
- - 对于PWM没有对应的功能   
+ - 对于PWM没有对应的功能    
+ 
 ```{r error=TRUE}
 a=DNAString("ACGTACGTACTC")
 a2=DNAStringSet(a, start=c(1,5,9), end=c(4,8,12))
