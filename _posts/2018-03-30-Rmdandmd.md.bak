@@ -1,12 +1,10 @@
 ---
 title: "关于github jekyll"
 date: "2018-03-30 16:53:09"
-tags:
 categories:
 - essay
 ---
 
 R语言中的markdown与github上支持的markdown有所区别     
-
-似乎github不支持代码结果的运行   
+似乎github不支持代码结果的运行
     
