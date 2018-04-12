@@ -10,12 +10,11 @@ xshell和Xmanager
 1、确保在隧道中开启X11
 
 2、直接下载R studio的压缩包，网址是我凑的
-```shell
 		cd /public/home/yzhou/tools
 		wget https://download1.rstudio.org/rstudio-0.98.1091-x86_64-fedora.tar.gz
 		tar -zxf rstudio-0.98.1091-x86_64-fedora.tar.gz
 		cd /public/home/yzhou/tools/rstudio-0.98.1091/bin
-```  
+
 网址只要知道版本号可以替换，我曾经试了0.99以上版本，服务器上GLIBC等版本不够，0.97的不知道什么原因启动报错了。
 下载到指定目录解压后，在bin里的rstudio可以直接打开 qsub -I -X 后打开rstudio(需要设置环境变量, -I计算节点 -X启用图像)。
 
